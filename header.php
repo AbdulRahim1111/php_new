@@ -77,7 +77,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="add_teacher.php">Add Teacher</a>
-                        <a class="collapse-item" href="utilities-border.html">View Teacher</a>
+                        <a class="collapse-item" href="view_teacher.php">View Teacher</a>
                     </div>
                 </div>
             </li>

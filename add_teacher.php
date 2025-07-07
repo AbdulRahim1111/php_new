@@ -15,7 +15,7 @@
                 <br><br>
                 <div class="row">
                     <div class="col-lg">
-                        <select class="form-control" name="teacher_batch">
+                        <select class="form-control" name="batch_info">
                             <option value="">select batches</option>
                             <?php
                                 $query = "SELECT * FROM `tbl_batch`";
@@ -51,15 +51,15 @@
         $teacher_name = $_POST["teacher_name"];
         $teacher_email = $_POST["teacher_email"];
         $teacher_password = $_POST["teacher_password"];
-        $teacher_batch = $_POST["teacher_batch"];
-        $teacher_image_name = $_FILES["teacher_img"]["name"];
+        $batch_info = $_POST["batch_info"];
+        $teacher_img = $_FILES["teacher_img"]["name"];
         $teacher_image_tmp_name = $_FILES["teacher_img"]["tmp_name"];
         
-        $path = "images/".$teacher_image_name;
+        $path = "img/".$teacher_img;
 
             if(move_uploaded_file($teacher_image_tmp_name,$path))
         {
-            $query = "INSERT INTO `tbl_teacher`( `teacher_name`, `teacher_email`, `teacher_password`, `teacher_batch`, `teacher_img_path`) VALUES ('$teacher_name','$teacher_email','$teacher_password','$teacher_batch','$path')";
+            $query = "INSERT INTO `tbl_teacher`( `teacher_name`, `teacher_email`, `teacher_password`, `batch_info`, `teacher_img`) VALUES ('$teacher_name','$teacher_email','$teacher_password','$batch_info','$path')";
             $result = mysqli_query($connection,$query);
             if($result){
                 echo "Record added Successfully";
