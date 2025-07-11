@@ -35,7 +35,7 @@
                         if($result){
                           while($rows = mysqli_fetch_assoc($result)){
                          ?>
-                                <option  value="<?php echo  $rows["batch_id"];?>"  <?php  if($rows["batch_id"] == $row["teacher_batch"]) { echo  "selected"; } ?>   > <?php echo  $rows["batch_info"];?></option>
+                                <option  value="<?php echo  $rows["batch_id"];?>"  <?php  if($rows["batch_id"] == $row["batch_info"]) { echo  "selected"; } ?>   > <?php echo  $rows["batch_name"];?></option>
                          <?php
                           }
                           
@@ -54,7 +54,7 @@
            <div class="row">
             <div class="col-lg">
                 <input type="file" name="teacher_img" class="form-control">
-                <img src="<?php echo $row["teacher_img_path"];?>" style="height:50px; width:100px"  />
+                <img src="<?php echo $row["teacher_img"];?>" style="height:50px; width:100px"  />
             </div>
             <div class="col-lg"> <input type="submit" class="btn btn-primary" name="update"></div>
            </div>
@@ -71,11 +71,11 @@
         
         $path = "images/".$teacher_img_name;
         if(move_uploaded_file($teacher_img_tmp_name,$path)){
-                $update_query = "UPDATE `tbl_teacher` SET `teacher_name`='$teacher_name',`teacher_email`='$teacher_email',`teacher_password`='$teacher_password',`batch_info`='$teacher_batch',`teacher_img_path`='$path' WHERE  teacher_id = $id";
+                $update_query = "UPDATE `tbl_teacher` SET `teacher_name`='$teacher_name',`teacher_email`='$teacher_email',`teacher_password`='$teacher_password',`batch_info`='$batch_info',`teacher_img`='$path' WHERE  teacher_id = $id";
                 $res =  mysqli_query($connection,$update_query);
             if($res){
                 echo "<script>
-                    window.location.href = 'view-teacher.php'
+                    window.location.href = 'view_teacher.php'
                 </script>";
             
             }
@@ -84,11 +84,11 @@
             }
         }
         else{
-            $update_query = "UPDATE `tbl_teacher` SET `teacher_name`='$teacher_name',`teacher_email`='$teacher_email',`teacher_password`='$teacher_password',`batch_info`='$teacher_batch' WHERE  teacher_id = $id";
+            $update_query = "UPDATE `tbl_teacher` SET `teacher_name`='$teacher_name',`teacher_email`='$teacher_email',`teacher_password`='$teacher_password',`batch_info`='$batch_info' WHERE  teacher_id = $id";
             $res =  mysqli_query($connection,$update_query);
             if($res){
                 echo "<script>
-                window.location.href = 'view-teacher.php'
+                window.location.href = 'view_teacher.php'
             </script>";
             }
         }
