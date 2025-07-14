@@ -53,8 +53,8 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span> Student data</span>
+                    <i class="fas fa-fw fa-book"></i>
+                    <span> Batch Data</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -69,8 +69,8 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Teachers</span>
+                    <i class="fas fa-fw fa-user-tie"></i>
+                    <span>Teachers Data</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
@@ -78,6 +78,23 @@
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="add_teacher.php">Add Teacher</a>
                         <a class="collapse-item" href="view_teacher.php">View Teacher</a>
+                    </div>
+                </div>
+            </li>
+
+             <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsethree"
+                    aria-expanded="true" aria-controls="collapsethree">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Student Data</span>
+                </a>
+                <div id="collapsethree" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <a class="collapse-item" href="add_std.php">Add Student</a>
+                        <a class="collapse-item" href="view_teacher.php">View Student</a>
                     </div>
                 </div>
             </li>
