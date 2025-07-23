@@ -60,8 +60,10 @@
             if(move_uploaded_file($teacher_image_tmp_name,$path))
         {
             $query = "INSERT INTO `tbl_teacher`( `teacher_name`, `teacher_email`, `teacher_password`, `batch_info`, `teacher_img`) VALUES ('$teacher_name','$teacher_email','$teacher_password','$batch_info','$path')";
+            $user_query = "INSERT INTO `tbl_users`(`username`, `user_password`, `user_type`) VALUES ('$teacher_email','$teacher_password','teacher')";
             $result = mysqli_query($connection,$query);
-            if($result){
+            $user_result =  mysqli_query($connection,$user_query);
+            if($result && $user_query){
                 echo "Record added Successfully";
             }
         }

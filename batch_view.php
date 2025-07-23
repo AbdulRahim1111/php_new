@@ -41,4 +41,5 @@
   </tbody>
 </table>
  </div>
+ </div>
 <?php require 'footer.php'?>
