@@ -99,11 +99,13 @@ if(isset($_POST["submit"])){
     $query = "SELECT * FROM `tbl_users` WHERE tbl_users.username = '$username' AND tbl_users.user_password = '$password' ";
 
     $result = mysqli_query($connection,$query);
-
-    if(mysqli_fetch_assoc($result) >0){
+    $ROWS = mysqli_fetch_assoc($result);
+    if($ROWS  >0){
         echo "user Logined Successfully";
         $_SESSION["username"] = $username;
+        $_SESSION["usertype"] = $ROWS ["usertype"];
         header("location:index.php");
+        exit();
     }
     else{
         echo "Invaild Username And Password";

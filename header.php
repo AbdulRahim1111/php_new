@@ -1,4 +1,12 @@
 <?php include "config.php"?>
+<?php 
+session_start();
+if(!isset($_SESSION["username"])){
+    header("location:login.php");
+    exit();
+}
+$role= $_SESSION["usertype"]
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,6 +67,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
+                        
                         <a class="collapse-item" href="add_batch.php">Batch Add</a>
                         <a class="collapse-item" href="batch_view.php">Batch View</a>
                     </div>
@@ -94,7 +103,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="add_std.php">Add Student</a>
-                        <a class="collapse-item" href="view_teacher.php">View Student</a>
+                        <a class="collapse-item" href="view_std.php">View Student</a>
                     </div>
                 </div>
             </li>

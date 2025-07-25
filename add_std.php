@@ -1,4 +1,12 @@
 
+<?php 
+session_start();
+$usertype = $_SESSION["usertype"];
+if($usertype != "admin"){
+    header("location:acces_denied.php");
+    exit();
+}
+?>
 <?php include_once "header.php"?>
      
         <div class="container-fluid">
@@ -88,8 +96,8 @@
     if(isset($_POST["submit"])){
         $std_name = $_POST["std_name"];
         $std_email = $_POST["std_email"];
-        $std_number = $_POST["std_number"];
         $std_password = $_POST["std_password"];
+        $std_number = $_POST["std_number"];
         $batch_info = $_POST["batch_info"];
         $teacher_info = $_POST["teacher_info"];
         $std_img = $_FILES["std_img"]["name"];
@@ -101,9 +109,11 @@
             if(move_uploaded_file($std_image_tmp_name,$path))
         {
             $query = "INSERT INTO `tbl_std`( `std_name`,`std_email`,`std_contact`,`std_password`, `batch_info`, `teacher_info`,`std_img`,`std_status`) VALUES ('$std_name','$std_email','$std_number','$std_password','$batch_info','$teacher_info','$path','$status')";
+            $user_query = "INSERT INTO `tbl_users`(`username`, `user_password`, `user_type`) VALUES ('$std_email','$std_password','student')";
             $result = mysqli_query($connection,$query);
-            if($result){
-                echo "Record added Successfully";
+            $user_result =  mysqli_query($connection,$user_query);
+            if($result && $user_query)
+                {     echo "Record added Successfully";
             }
         }
     }

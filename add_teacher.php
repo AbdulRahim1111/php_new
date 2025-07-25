@@ -1,4 +1,14 @@
+<?php 
+session_start();
+$usertype = $_SESSION["usertype"];
+if($usertype != "admin"){
+    header("location:acces_denied.php");
+    exit();
+}
+?>
+
 <?php include_once "header.php"?>
+
      
         <div class="container-fluid">
             <h1 class="h3 mb-4 text-gray-800">Add Teacher</h1>
