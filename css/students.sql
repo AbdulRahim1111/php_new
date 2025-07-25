@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2025 at 05:46 PM
+-- Generation Time: Jul 23, 2025 at 05:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `student`
+-- Database: `students`
 --
 
 -- --------------------------------------------------------
@@ -50,6 +50,23 @@ INSERT INTO `tbl_batch` (`batch_id`, `batch_name`, `batch_capacity`, `batch_star
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_std`
+--
+
+CREATE TABLE `tbl_std` (
+  `std_id` int(11) NOT NULL,
+  `std_name` varchar(100) NOT NULL,
+  `std_email` varchar(100) NOT NULL,
+  `std_password` varchar(100) NOT NULL,
+  `batch_info` int(11) NOT NULL,
+  `teacher_info` int(11) NOT NULL,
+  `std_img` varchar(100) NOT NULL,
+  `std_status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_teacher`
 --
 
@@ -70,6 +87,26 @@ INSERT INTO `tbl_teacher` (`teacher_id`, `teacher_name`, `teacher_email`, `teach
 (9, 'Rahim   ', 'rahim@gmil.com   ', '11111', 6, 'img/Screenshot 2025-06-23 111040.png'),
 (11, 'Waseef ', 'waseef@gmail.com ', '11345', 15, 'img/Screenshot (1).png');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_users`
+--
+
+CREATE TABLE `tbl_users` (
+  `usre_id` int(11) NOT NULL,
+  `username` varchar(33) NOT NULL,
+  `user_password` varchar(11) NOT NULL,
+  `user_type` varchar(33) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_users`
+--
+
+INSERT INTO `tbl_users` (`usre_id`, `username`, `user_password`, `user_type`) VALUES
+(1, 'admin', 'admin123', 'admin');
+
 --
 -- Indexes for dumped tables
 --
@@ -81,11 +118,23 @@ ALTER TABLE `tbl_batch`
   ADD PRIMARY KEY (`batch_id`);
 
 --
+-- Indexes for table `tbl_std`
+--
+ALTER TABLE `tbl_std`
+  ADD PRIMARY KEY (`std_id`);
+
+--
 -- Indexes for table `tbl_teacher`
 --
 ALTER TABLE `tbl_teacher`
   ADD PRIMARY KEY (`teacher_id`),
   ADD KEY `new_fk` (`batch_info`);
+
+--
+-- Indexes for table `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  ADD PRIMARY KEY (`usre_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -98,10 +147,22 @@ ALTER TABLE `tbl_batch`
   MODIFY `batch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `tbl_std`
+--
+ALTER TABLE `tbl_std`
+  MODIFY `std_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbl_teacher`
 --
 ALTER TABLE `tbl_teacher`
   MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  MODIFY `usre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
