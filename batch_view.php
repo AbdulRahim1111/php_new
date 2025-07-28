@@ -27,8 +27,10 @@
                 <td><?php echo $rows["batch_name"];?></td>
                 <td><?php echo $rows["batch_capacity"];?></td>
                 <td><?php echo $rows["batch_start_date"];?></td>
+                 <?php if($role  == "admin" ) { ?>
                 <td><a href="delete_batch.php?id=<?php echo $rows["batch_id"];?>" class="btn btn-danger"> Delete</a> | 
                 <a href="edit_batch.php?id=<?php echo $rows["batch_id"];?>" class="btn btn-primary">Edit</a></td>
+                <?php } ?>
     </tr>
             </tr>
             <?php

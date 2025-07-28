@@ -67,8 +67,9 @@ $role= $_SESSION["usertype"]
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        
+                         <?php if($role  == "admin" ) { ?>
                         <a class="collapse-item" href="add_batch.php">Batch Add</a>
+                         <?php } ?>
                         <a class="collapse-item" href="batch_view.php">Batch View</a>
                     </div>
                 </div>
@@ -85,7 +86,9 @@ $role= $_SESSION["usertype"]
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
+                        <?php if($role  == "admin" ) { ?>
                         <a class="collapse-item" href="add_teacher.php">Add Teacher</a>
+                         <?php } ?>
                         <a class="collapse-item" href="view_teacher.php">View Teacher</a>
                     </div>
                 </div>
@@ -102,7 +105,9 @@ $role= $_SESSION["usertype"]
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
+                         <?php if($role  == "admin" ) { ?>
                         <a class="collapse-item" href="add_std.php">Add Student</a>
+                        <?php } ?>
                         <a class="collapse-item" href="view_std.php">View Student</a>
                     </div>
                 </div>

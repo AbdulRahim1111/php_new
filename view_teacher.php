@@ -28,8 +28,10 @@
                     <td><?php echo $rows["teacher_email"]?></td>
                     <td><?php echo $rows["batch_name"]?></td>
                     <td><img style="height:50px; width:100px" src="<?php echo $rows["teacher_img"]?>"/></td>
+                    <?php if($role  == "admin" ) { ?>
                     <td><a href="edit_teacher.php?id=<?php echo $rows["teacher_id"];?>" class="btn btn-primary">Edit</a></td>
                     <td><a href="delete_teacher.php?id=<?php echo $rows["teacher_id"];?>" class="btn btn-danger"> Delete</a>
+                    <?php } ?>
                    
                   
                 </tr>

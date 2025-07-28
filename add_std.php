@@ -109,7 +109,7 @@ if($usertype != "admin"){
             if(move_uploaded_file($std_image_tmp_name,$path))
         {
             $query = "INSERT INTO `tbl_std`( `std_name`,`std_email`,`std_contact`,`std_password`, `batch_info`, `teacher_info`,`std_img`,`std_status`) VALUES ('$std_name','$std_email','$std_number','$std_password','$batch_info','$teacher_info','$path','$status')";
-            $user_query = "INSERT INTO `tbl_users`(`username`, `user_password`, `user_type`) VALUES ('$std_email','$std_password','student')";
+            $user_query = "INSERT INTO `tbl_users`(`username`, `user_password`, `usertype`) VALUES ('$std_email','$std_password','student')";
             $result = mysqli_query($connection,$query);
             $user_result =  mysqli_query($connection,$user_query);
             if($result && $user_query)
